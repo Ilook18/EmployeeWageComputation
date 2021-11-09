@@ -12,19 +12,14 @@ namespace EmpWages
         {
             Random random = new Random();
             int empCheck = random.Next(0, 3);
-            if (empCheck == IS_FULL_TIME)
+           switch(empCheck)
             {
-                this.empHrs = FULL_WORKING_HOURS;
-
-            }
-            if (empCheck == IS_PART_TIME)
-            {
-                this.empHrs = PART_TIME_HRS;
-            }
-
-            else
-            {
-                this.empHrs = 0;
+                case IS_FULL_TIME:this.empHrs = FULL_WORKING_HOURS;
+                    break;
+                case IS_PART_TIME:this.empHrs = PART_TIME_HRS;
+                    break;
+                default:this.empHrs = 0;
+                    break;
             }
             this.totalEmpWage = this.empHrs * WAGE_PER_HOUR;
 
